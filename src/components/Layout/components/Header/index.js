@@ -2,6 +2,7 @@ import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
 import images from '../../../../assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import {
     faEllipsisVertical,
     faEarthAsia,
@@ -18,6 +19,7 @@ import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '../../../Icons';
 import Search from '../Search';
+import routesConfig from '../../../../config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -87,7 +89,9 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="tiktok" />
+                    <Link to={routesConfig.home} className={cx('logo-link')}>
+                        <img src={images.logo} alt="tiktok" />
+                    </Link>
                 </div>
                 <Search />
                 <div className={cx('actions')}>
